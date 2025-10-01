@@ -51,8 +51,8 @@ variable "allowed_ssh_cidr" {
   type        = string
 }
 
-// Security group variables
-variable "vpc_id" {
-  description = "VPC ID where the bastion is launched"
+#IAM module variables
+variable "cluster_name" {
   type        = string
+  description = "EKS cluster name"
 }

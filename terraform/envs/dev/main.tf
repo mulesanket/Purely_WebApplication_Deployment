@@ -20,3 +20,9 @@ module "bastion" {
   key_name         = var.key_name
   allowed_ssh_cidr = var.allowed_ssh_cidr
 }
+
+# IAM module configuration
+module "iam" {
+  source = "../../modules/iam"
+  cluster_name = var.cluster_name
+}

@@ -12,3 +12,5 @@ instance_type    = "t3.micro"
 key_name         = "us_virginia_keypair"
 allowed_ssh_cidr = "0.0.0.0/0"
 
+//IAM module variables
+cluster_name = "purely-webapp-eks-cluster"
