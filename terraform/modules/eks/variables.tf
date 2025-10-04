@@ -1,13 +1,13 @@
 
 variable "cluster_name" {
-  type        = string
+  type = string
 }
 
 variable "eks_version" {
-  type        = string
+  type = string
 }
 
 variable "cluster_api_cidrs" {
-  type        = list(string)
-  default     = ["0.0.0.0/0"]
+  type    = list(string)
+  default = ["0.0.0.0/0"]
 }
