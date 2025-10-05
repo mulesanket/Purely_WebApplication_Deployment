@@ -2,7 +2,7 @@
 resource "aws_eks_cluster" "this" {
   name     = var.cluster_name
   version  = var.eks_version
-  role_arn = aws_iam_role.eks_cluster_role.arn
+  role_arn = var.eks_cluster_role_arn
 
   vpc_config {
 
@@ -13,7 +13,7 @@ resource "aws_eks_cluster" "this" {
     endpoint_private_access = false
     public_access_cidrs     = var.cluster_api_cidrs
 
-    security_group_ids = [aws_security_group.eks_cluster_sg.id]
+  //  security_group_ids = [aws_security_group.eks_cluster_sg.id]
   }
 
   tags = {

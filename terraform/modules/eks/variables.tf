@@ -11,3 +11,11 @@ variable "cluster_api_cidrs" {
   type    = list(string)
   default = ["0.0.0.0/0"]
 }
+
+variable "eks_cluster_role_arn" {
+  type = string
+}
+
+variable "private_subnet_ids" {
+  type = list(string)
+}
