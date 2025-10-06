@@ -3,5 +3,3 @@ variable "cluster_name" {
   default     = "purely-webapp-eks-cluster"
   description = "EKS cluster name"
 }
-
-

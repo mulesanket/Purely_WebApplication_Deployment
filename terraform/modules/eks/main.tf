@@ -10,8 +10,6 @@ resource "aws_eks_cluster" "this" {
 
   vpc_config {
     subnet_ids = var.private_subnet_ids
-
-    # (Public endpoint enabled for testing)
     endpoint_public_access  = true
     endpoint_private_access = false
     public_access_cidrs     = var.cluster_api_cidrs
