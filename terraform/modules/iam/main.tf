@@ -1,4 +1,4 @@
-# EKS Cluster Role
+# --- Cluster Role ---
 resource "aws_iam_role" "eks_cluster_role" {
   name = "${var.cluster_name}-cluster-role"
 
@@ -6,23 +6,18 @@ resource "aws_iam_role" "eks_cluster_role" {
     Version = "2012-10-17",
     Statement = [{
       Action = "sts:AssumeRole",
-      Principal = {
-        Service = "eks.amazonaws.com"
-      },
+      Principal = { Service = "eks.amazonaws.com" },
       Effect = "Allow"
     }]
   })
 }
 
-# EKS Cluster Role Policy Attachment
 resource "aws_iam_role_policy_attachment" "eks_cluster_AmazonEKSClusterPolicy" {
   role       = aws_iam_role.eks_cluster_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
-#################################################################################
-
-# EKS Node Group Role
+# --- Node Role ---
 resource "aws_iam_role" "eks_node_role" {
   name = "${var.cluster_name}-node-role"
 
@@ -30,15 +25,12 @@ resource "aws_iam_role" "eks_node_role" {
     Version = "2012-10-17",
     Statement = [{
       Action = "sts:AssumeRole",
-      Principal = {
-        Service = "ec2.amazonaws.com"
-      },
-      Effect = "Allow"
+      Principal = { Service = "ec2.amazonaws.com" },
+      Effect    = "Allow"
     }]
   })
 }
 
-# EKS Node Group Role Policy Attachments
 resource "aws_iam_role_policy_attachment" "node_AmazonEKSWorkerNodePolicy" {
   role       = aws_iam_role.eks_node_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
@@ -53,3 +45,12 @@ resource "aws_iam_role_policy_attachment" "node_AmazonEKS_CNI_Policy" {
   role       = aws_iam_role.eks_node_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
+
+# --- Outputs ---
+# output "eks_cluster_role_arn" {
+#   value = aws_iam_role.eks_cluster_role.arn
+# }
+
+# output "eks_cluster_node_role_arn" {
+#   value = aws_iam_role.eks_node_role.arn
+# }
