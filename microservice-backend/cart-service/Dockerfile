@@ -21,6 +21,6 @@ USER appuser
 
 COPY --from=build /app/target/*.jar app.jar
 
-EXPOSE 9010
+EXPOSE 9060
 
-CMD ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar", "app.jar"]
