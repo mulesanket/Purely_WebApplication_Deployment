@@ -73,7 +73,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://13.222.190.169:8761/eureka/
+      defaultZone: http://100.25.212.194:8761/eureka/
     fetchRegistry: true
     registerWithEureka: true
   instance:
