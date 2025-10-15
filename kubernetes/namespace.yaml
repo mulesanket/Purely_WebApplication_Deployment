@@ -1,0 +1,7 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: purely-webapp-dev
+  labels:
+    project: purely-webapp
+
