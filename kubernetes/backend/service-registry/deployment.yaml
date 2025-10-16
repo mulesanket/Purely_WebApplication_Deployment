@@ -1,5 +1,5 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: service-registry-deployment
   labels:
@@ -9,14 +9,15 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: service-registry
+      app: service-registry 
   template:
     metadata:
       labels:
         app: service-registry
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
+      - name: service-registry
+        image: 566855233164.dkr.ecr.us-east-1.amazonaws.com/service-registry:v1.0.0
+        imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8761
