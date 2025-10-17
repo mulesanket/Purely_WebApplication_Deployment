@@ -3,8 +3,9 @@ apiVersion: apps/v1
 metadata:
   name: service-registry-deployment
   labels:
-    app: service-registry
+    app: service-registry-deployment
   namespace: purely-webapp-dev
+  
 spec:
   replicas: 3
   selector:
