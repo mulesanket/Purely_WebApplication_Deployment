@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: service-registry-service
+  labels:
+    app: service-registry
+  namespace: purely-webapp-dev
+spec:
+  type: LoadBalancer
+  selector: 
+    app: service-registry
+  ports:
+  - protocol: http
+    port: 80
+    targetPort: 8761
